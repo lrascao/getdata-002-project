@@ -81,7 +81,6 @@ first_dataset <- function(X_train_dataset, X_test_dataset,
 second_dataset <- function(dataset1) {
 
 	# Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-	
 	aggregate(. ~ activity + subject, dataset1, mean)
 }
 
@@ -92,16 +91,16 @@ features <- read.table("data/features.txt", col.names = c("id", "feature"), stri
 activity_labels <- read.table("data/activity_labels.txt", col.names = c("id", "activity"), stringsAsFactors = FALSE)
 
 # read the subjects data file
-subjects_train <- read.table("data/train/subject_train_small.txt", col.names = c("subject_id"))
-subjects_test <- read.table("data/test/subject_test_small.txt", col.names = c("subject_id"))
+subjects_train <- read.table("data/train/subject_train.txt", col.names = c("subject_id"))
+subjects_test <- read.table("data/test/subject_test.txt", col.names = c("subject_id"))
 
 # read the train dataset activities
-X_train_dataset <- read.table("data/train/X_train_small.txt", col.names = features$feature)
-y_train_dataset <- read.table("data/train/y_train_small.txt", col.names = c("activity"))
+X_train_dataset <- read.table("data/train/X_train.txt", col.names = features$feature)
+y_train_dataset <- read.table("data/train/y_train.txt", col.names = c("activity"))
 
 # and now the test dataset, read both the activities and data files
-X_test_dataset <- read.table("data/test/X_test_small.txt", col.names = features$feature)
-y_test_dataset <- read.table("data/test/y_test_small.txt", col.names = c("activity"))
+X_test_dataset <- read.table("data/test/X_test.txt", col.names = features$feature)
+y_test_dataset <- read.table("data/test/y_test.txt", col.names = c("activity"))
 
 # build the first tidy data set of the assignment
 datasets <- first_dataset(X_train_dataset, X_test_dataset, y_train_dataset, y_test_dataset, subjects_train, subjects_test, activity_labels)

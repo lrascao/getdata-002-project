@@ -14,3 +14,10 @@ run_analysis.R processes a set of data containing various sensor readings for va
 
 ### Description
 
+## First dataset (dataset1)
+## 	1. merges the two datasets, training and test, for both X, y, and subject list
+##	2. adds a activity column factor
+##	3. builds a feature subset vector containing only the column names containing mean, Mean and std
+##	4, build a dataset filtered by the feature subset
+##	5. returns both the filtered and unfiltered datasets
+
